@@ -7,7 +7,6 @@ package com.panos.redis.repositories;
 
 import com.panos.redis.model.Quote;
 import java.util.Map;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
@@ -19,9 +18,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class QuoteRepositoryImpl implements QuoteRepository{
     
-    @Autowired
     private final RedisTemplate<String, Quote> redisTemplate;
-    
     private final HashOperations hashOperations;
 
     public QuoteRepositoryImpl(RedisTemplate<String, Quote> redisTemplate) {
@@ -30,7 +27,6 @@ public class QuoteRepositoryImpl implements QuoteRepository{
         hashOperations = redisTemplate.opsForHash();
     }
 
-    
     @Override
     public void save(Quote quote) {
         hashOperations.put("QUOTE", quote.getId(), quote);

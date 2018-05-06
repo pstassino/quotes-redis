@@ -32,7 +32,7 @@ public class QuoteController {
         this.quoteRepository = quoteRepository;
     }
     
-    @GetMapping("")
+    @GetMapping("/all")
     public Map<String, Quote> getAllQuotes(){
         return quoteRepository.findAll();
     }
@@ -48,16 +48,18 @@ public class QuoteController {
         return quoteRepository.findById(quote.getId());
     }
     
-    @PostMapping("/update")
-    public Quote updateQuote(@RequestBody final Quote quote){
+    @PostMapping("/update/{id}")
+    public Quote updateQuote(
+            @RequestBody final Quote quote,
+            @PathVariable("id") final String id){
         quoteRepository.update(quote);
-        return quoteRepository.findById(quote.getId());
+        return quoteRepository.findById(id);
     }
     
-    @PostMapping("/delete")
-    public Quote deleteQuote(@RequestBody final Quote quote){
-        quoteRepository.delete(quote.getId());
-        return quoteRepository.findById(quote.getId());
+    @GetMapping("/delete/{id}")
+    public Map<String, Quote> deleteQuote(@PathVariable("id") final String id){
+        quoteRepository.delete(id);
+        return getAllQuotes();
     }
     
 }

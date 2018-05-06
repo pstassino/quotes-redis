@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public interface QuoteRepository {
     
-        void save(Quote quote);
+    void save(Quote quote);
     Map<String, Quote> findAll();
     Quote findById(String stock);
     void update(Quote quote);

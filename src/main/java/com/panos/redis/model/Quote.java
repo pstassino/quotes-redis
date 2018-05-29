@@ -14,30 +14,60 @@ import java.math.BigDecimal;
  */
 public class Quote implements Serializable {
     
-    private String id;
-    private BigDecimal price;
+   private String stock;
+   private BigDecimal price;
+   private BigDecimal change;
+   private BigDecimal bid;
+   private BigDecimal ask;
 
-    public Quote(String id, BigDecimal price) {
-        this.id = id;
-        this.price = price;
-    }
+   public Quote() {
+   }
 
-    public String getId() {
-        return id;
-    }
+   public Quote(String stock, BigDecimal price, BigDecimal change, BigDecimal bid, BigDecimal ask) {
+       this.stock = stock;
+       this.price = price;
+       this.change = change;
+       this.bid = bid;
+       this.ask = ask;
+   }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+   public BigDecimal getBid() {
+       return bid;
+   }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
+   public void setBid(BigDecimal bid) {
+       this.bid = bid;
+   }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-    
-    
+   public BigDecimal getAsk() {
+       return ask;
+   }
+
+   public void setAsk(BigDecimal ask) {
+       this.ask = ask;
+   }
+
+   public BigDecimal getChange() {
+       return change;
+   }
+
+   public void setChange(BigDecimal change) {
+       this.change = change;
+   }
+
+   public String getStock() {
+       return stock;
+   }
+
+   public void setStock(String stock) {
+       this.stock = stock;
+   }
+
+   public BigDecimal getPrice() {
+       return price;
+   }
+
+   public void setPrice(BigDecimal price) {
+       this.price = price;
+   }
 }
-

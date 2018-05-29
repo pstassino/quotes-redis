@@ -45,7 +45,7 @@ public class QuoteController {
     @PostMapping("/add")
     public Quote addQuote(@RequestBody final Quote quote){
         quoteRepository.save(quote);
-        return quoteRepository.findById(quote.getId());
+        return quoteRepository.findById(quote.getStock());
     }
     
     @PostMapping("/update/{id}")

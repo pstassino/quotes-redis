@@ -29,7 +29,7 @@ public class QuoteRepositoryImpl implements QuoteRepository{
 
     @Override
     public void save(Quote quote) {
-        hashOperations.put("QUOTE", quote.getId(), quote);
+        hashOperations.put("QUOTE", quote.getStock(), quote);
     }
 
     @Override
